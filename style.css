@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-heading: 'epilogue', sans-serif;
+  --ff-texting: 'Open-sans', sans-serif;
+
+  --hue: 250;
+  --bg-primary: hsl(var(--hue), 22%, 20%);
+  --fc-primary: hsl(var(--hue), 0%, 100%);
+  --fc-secondary: hsl(var(--hue), 50%, 80%);
+  --fc-secondary-dark: hsl(var(--hue), 100%, 11%);
+
+  font-size: 62.5%;
+  --fs-body: 1.6rem;
+  --fs-heading: clamp(4rem, 1rem + 5vw, 5.6rem);
+  --fs-heading-sm: clamp(3rem, 0.5rem + 4vw, 4rem);
+}
+
+/* "Fazer variáveis posso usar a síntase (--color-main:tomato;)  
+"--Abreviação ou um texto:" se tiver dois textos usar depois da abreviação "-" e o segundo texto seguido da propriedade" */
+/* EX: --fc-tertiary: #ffffff; propriedade*/
+
+body {
+  font-family: var(--ff-heading);
+
+  background-color: var(--bg-primary);
+  color: var(--fc-primary);
+  font-size: var(--fs-body);
+}
+
+.page {
+  max-width: clamp(33rem, 30rem + 60vw, 117rem);
+  
+  padding: 0 5rem;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  margin: 10rem 0 8rem;
+
+  font-family: var(--ff-heading);
+  text-align: center;
+}
+
+header p {
+  font-weight: 400;
+  color: var(--fc-secondary);
+  text-transform: uppercase;
+
+  line-height: 3.2rem;
+  letter-spacing: 3px;
+
+  margin-bottom: 1.7rem;
+
+  animation: fall 500ms 250ms backwards;
+}
+
+header h1 {
+  font-weight: 800;
+  font-size: var(--fs-heading);
+  line-height: 4.8rem;
+
+  animation: slip 700ms 450ms backwards;
+}
+
+main {
+  display: grid;
+  gap: 3.2rem;
+
+  animation: rising 900ms 720ms  backwards;
+}
+
+.card {
+  position: relative;
+
+  font-family: var(--ff-heading);
+}
+
+.card img {
+  height: 41.6rem;
+  object-fit: cover;
+
+  filter: brightness(0.5) saturate(1.5);
+  
+  border-radius: 6px;
+  transition: all 200ms;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+
+  filter: brightness(1);
+  opacity: 0.8;
+}
+
+.card h2 {
+  position: absolute;
+  bottom: 5.2rem;
+  left: 2.8rem;
+
+  font-size: var(--fs-heading-sm);
+  font-weight: 800;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+.card h2 span {
+  border-radius: 2rem;
+  background-color: var(--fc-primary);
+  font-size: var(--fs-body);
+
+  font-weight: 400;
+
+  color: var(--fc-secondary-dark);
+  padding: 0 1.6rem;
+  height: 3.8rem;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slip {
+  0% {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rising {
+  0% {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* @keyframes rising {
+  100% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+} 
+Forma mais abreviada mas como o mesmo resultado
+*/
+
+@media (min-width:700px) {
+
+  /* .page {
+    max-width: 100rem;
+    padding: 0 5rem 14.8rem;
+  } */
+
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (min-width: 930px) {
+  main{
+    grid-template-areas: "colA colB colB"
+    "colC colC colD";
+  }col
+
+  main div:nth-child(1) {
+    grid-area: colA;
+  }
+  
+  main div:nth-child(2) {
+    grid-area: colB;
+  }
+
+  main div:nth-child(3) {
+    grid-area: colC;
+  }
+
+  main div:nth-child(4) {
+    grid-area: colD;
+  }
+
+}
