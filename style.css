@@ -34,7 +34,7 @@ body {
 
 .page {
   max-width: clamp(33rem, 30rem + 60vw, 117rem);
-  
+
   padding: 0 5rem;
   margin: 0 auto;
 }
@@ -183,7 +183,7 @@ Forma mais abreviada mas como o mesmo resultado
   main {
     grid-template-columns: 1fr 1fr;
   }
-
+  
 }
 
 @media (min-width: 930px) {
